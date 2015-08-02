@@ -6,24 +6,25 @@
         </div>
 
 	      <form name="loginForm" novalidate="" ng-submit="login(loginForm,user)">
-		      <div class="list card padding">
+		      <div class="list card padding curved-corner">
 		            <label class="item item-input item-icon-left">
-			             <i class="ion-email" style="margin-right: 15px;"></i>
-			             <input type="text" placeholder="Email Address" ng-model="user.email">
+			             <i class="ion-email" ng-class="{'has-errors' : loginForm.email.$invalid, 'no-errors':loginForm.email.$valid}" style="margin-right: 15px;"></i>
+			             <input type="text" name="email" placeholder="Email Address" ng-model="user.email" required formatted-as-email>
 		            </label>
 
 		            <label class="item item-input item-icon-left">
-		            	 <i class="ion-android-lock" style="margin-right: 15px;"></i>
-		            	 <input type="password" paceholder="Password" ng-model="user.password">
+		            	 <i class="ion-android-lock" style="margin-right: 15px;" ng-class="{'has-errors' : loginForm.password.$invalid, 'no-errors':loginForm.password.$valid}" style="margin-right: 15px;"></i>
+		            	 <input type="password" name="password" placeholder="Password" ng-model="user.password" required>
 		            </label>
-		            <button type="submit" class="button button-block button-positive activated">
+		       </div>
+		    			  <button type="submit" class="button button-full button-positive activated curved-corner">
+		    			  <i class="icon-left ion-log-in"></i>
 		                Sign In
 		            </button>
-		       </div>
 	      </form>
 
-        <div class="list" style="text-align:center">
-            <button class="button button-small button-outline icon-left ion-person-add button-positive">
+        <div class="list" style="text-align:center;margin-top: 50px">
+            <button class="button button-small button-outline icon-left ion-person-add button-positive curved-corner">
                 Register
             </button>
         </div>

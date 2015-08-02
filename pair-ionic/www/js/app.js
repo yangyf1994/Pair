@@ -60,5 +60,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
   $urlRouterProvider.otherwise('/login');
 
-    console.log('Config Initiated');
-});
+})
+
+//Directive that uses regex expression to do form validation
+.directive("formattedAsEmail", function() {
+    return {
+      restrict: "A",
+      require: "?ngModel",
+      link: function(scope, element, attributes, ngModel) {
+        ngModel.$validators.wrongFormat = function(modelValue) {
+          if (modelValue) {
+            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            return re.test(modelValue);
+          }
+          else {
+            return true;
+          }
+        };
+      }
+    };
+})

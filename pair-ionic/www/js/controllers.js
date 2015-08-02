@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LoginCtrl',function ($scope) {
-  console.log('LoginCtrl');
+
   $scope.login = function (form,user) {
 
   };

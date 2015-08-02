@@ -5,3 +5,14 @@
     width: 60%;
     margin: 0 auto;
 }
+
+.has-errors{
+		color: red;
+}
+.no-errors{
+		color: green;
+}
+
+.curved-corner{
+    border-radius: 10px;
+}
