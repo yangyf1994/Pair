@@ -12,7 +12,8 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LoginCtrl',function ($scope,PopUp,$state,$ionicModal,Yo) {
+.controller('LoginCtrl',
+function ($scope,PopUp,$state,$ionicModal,$ionicLoading,Yo,User) {
 
 //Login Section
   $scope.login = function (form,user) {
@@ -27,8 +28,33 @@ angular.module('starter.controllers', [])
       else
       {
         //form valid attemps login
-        console.log(user);
-        $state.go('tab.dash');
+        $ionicLoading.show({
+          template:"Loading..."
+        });
+        var firebaseAuth = User.firebaseAuth();
+        firebaseAuth.$authWithPassword({
+          email: user.email,
+          password: user.password
+        }).then(function (authData) {
+          console.log(authData);
+          $ionicLoading.hide();
+          $ionicLoading.show({
+            template:'Success!',
+            duration:3000
+          })
+          $state.go('tab.dash');
+        }).catch(function (error) {
+          $ionicLoading.hide();
+          PopUp.showPopUp({
+            template: error,
+            okType: 'button-large button-assertive'
+          },function () {
+            user.email ='';
+            user.password='';
+          })
+
+        })
+
       }
   };
 //Register Section

@@ -30,7 +30,7 @@ angular.module('starter.services', [])
 
 })
 
-.factory('User',function (FIREBASE_URL,$firebase) {
+.factory('User',function (FIREBASE_URL,$firebase,$firebaseAuth) {
 	var refAuth = new Firebase(FIREBASE_URL);
 	return {
 		firebaseAuth: function () {
