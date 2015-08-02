@@ -17,14 +17,15 @@
 		            	 <input type="password" name="password" placeholder="Password" ng-model="user.password" required>
 		            </label>
 		       </div>
-		    			  <button type="submit" class="button button-full button-positive activated curved-corner">
+		    			  <button type="submit" class="button button-full button-assertive activated curved-corner">
 		    			  <i class="icon-left ion-log-in"></i>
 		                Sign In
 		            </button>
 	      </form>
 
         <div class="list" style="text-align:center;margin-top: 50px">
-            <button class="button button-small button-outline icon-left ion-person-add button-positive curved-corner">
+            <button class="button button-small button-outline icon-left ion-person-add button-assertive curved-corner"
+            ng-click="modal.show()">
                 Register
             </button>
         </div>

@@ -1,5 +1,10 @@
 
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic',
+ 'starter.controllers',
+ 'starter.services',
+ 'ngMessages',
+ 'firebase'
+ ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

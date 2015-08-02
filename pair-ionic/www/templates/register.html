@@ -1,0 +1,33 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <h1 class="title">Create New Account</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+    </ion-header-bar>
+
+
+    <ion-content class="padding">
+    	<form name="registerForm" novalidate="" ng-submit="createUser(register)">
+    		 <div ng-show="registerForm.email.$error" ng-messages="registerForm.email.$error">
+              <div ng-messages-include="templates/error-list.html"></div>
+          </div>
+    		 <div class="list card padding curved-corner">
+            <label class="item item-input item-icon-left">
+               	<i class="ion-email" ng-class="{'has-errors' : registerForm.email.$invalid, 'no-errors':registerForm.email.$valid}" style="margin-right: 15px;"></i>
+                <input ng-model="register.email" name="email"type="text" placeholder="Email Address" formatted-as-email required>
+            </label>
+
+            <label class="item item-input">
+            		 <i class="ion-android-lock" style="margin-right: 15px;" ng-class="{'has-errors' : registerForm.password.$invalid, 'no-errors':registerForm.password.$valid}"></i>
+                <input ng-model="register.password" type="password" name="password" placeholder="Password" ng-disabled="registerForm.email.$invalid" required>
+            </label>
+            <label class="item item-input">
+            		<i class="ion-person" style="margin-right: 15px;" ng-class="{'has-errors' : registerForm.yoName.$invalid, 'no-errors':registerForm.yoName.$valid}"></i>
+                <input ng-model="register.yoName" type="text" name="yoName" placeholder="Yo Username" required ng-disabled="registerForm.password.$invalid || registerForm.email.$invalid">
+            </label>
+            <button class="button button-full button-positive"
+            type="submit">Create</button>
+        </div>
+    	</form>
+
+    </ion-content>
+</ion-modal-view>

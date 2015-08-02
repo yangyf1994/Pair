@@ -12,8 +12,9 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LoginCtrl',function ($scope,PopUp,$state) {
+.controller('LoginCtrl',function ($scope,PopUp,$state,$ionicModal) {
 
+//Login Section
   $scope.login = function (form,user) {
 
       if(!form.$valid){
@@ -30,6 +31,16 @@ angular.module('starter.controllers', [])
         $state.go('tab.dash');
       }
   };
+//Register Section
+  $ionicModal.fromTemplateUrl('templates/register.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.modal = modal;
+    });
 
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
 
 });

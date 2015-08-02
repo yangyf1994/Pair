@@ -2,13 +2,14 @@ angular.module('starter.services', [])
 .factory('PopUp',function ($ionicPopup,$timeout) {
 
   return{
-      /*
+
+    showPopUp: function (popUpContent,callback) {
+    	/*
       popUpContent
         tilte:
         template:
         timeout: in millisecs
       */
-    showPopUp: function (popUpContent,callback) {
       var alertPopUp = $ionicPopup.alert({
         title: popUpContent.title,
         template: popUpContent.template,
