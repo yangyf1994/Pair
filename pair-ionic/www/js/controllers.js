@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LoginCtrl',function ($scope,PopUp,$state,$ionicModal) {
+.controller('LoginCtrl',function ($scope,PopUp,$state,$ionicModal,Yo) {
 
 //Login Section
   $scope.login = function (form,user) {
@@ -42,5 +42,28 @@ angular.module('starter.controllers', [])
   $scope.$on('$destroy', function() {
     $scope.modal.remove();
   });
+
+  $scope.createUser = function (user) {
+
+     Yo.username_exists(user.yoName,function (exists) {
+       if(exists){
+          PopUp.showPopUp({
+            title: 'Warning',
+            template:'Yo username already taken. Please try again',
+            okType:'button-large button-assertive'
+          },function () {
+            user.yoName ='';
+          });
+        }
+      else
+        {
+          Yo.register(user.yoName,function () {
+
+          })
+        }
+     });
+
+
+  }
 
 });

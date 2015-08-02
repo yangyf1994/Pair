@@ -85,3 +85,5 @@ angular.module('starter', ['ionic',
       }
     };
 })
+.value('FIREBASE_URL',"https://expensetrackionic.firebaseio.com")
+.value("YO_API_TOKEN",'ec396f80-2742-4c80-a834-1459b3a3f42c')
