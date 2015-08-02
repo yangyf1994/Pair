@@ -1,0 +1,33 @@
+<ion-view view-title="Login">
+
+    <ion-content class="padding">
+        <div class="list">
+            <img src="img/logo.png" class="logo">
+        </div>
+
+	      <form name="loginForm" novalidate="" ng-submit="login(loginForm,user)">
+		      <div class="list card padding">
+		            <label class="item item-input item-icon-left">
+			             <i class="ion-email" style="margin-right: 15px;"></i>
+			             <input type="text" placeholder="Email Address" ng-model="user.email">
+		            </label>
+
+		            <label class="item item-input item-icon-left">
+		            	 <i class="ion-android-lock" style="margin-right: 15px;"></i>
+		            	 <input type="password" paceholder="Password" ng-model="user.password">
+		            </label>
+		            <button type="submit" class="button button-block button-positive activated">
+		                Sign In
+		            </button>
+		       </div>
+	      </form>
+
+        <div class="list" style="text-align:center">
+            <button class="button button-small button-outline icon-left ion-person-add button-positive">
+                Register
+            </button>
+        </div>
+    </ion-content>
+
+</ion-view>
+
